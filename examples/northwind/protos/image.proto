@@ -2,7 +2,16 @@ syntax = "proto3";
 
 package northwind;
 
+import "artisan/artisan.proto";
+
 message Image {
-    string id = 1;
+    string id = 1 [(artisan.field_is_primary_key) = true];
     bytes data = 2;
+}
+
+message ImageFK {
+    oneof image {
+        string id = 1;
+        Image instance = 2;
+    };
 }

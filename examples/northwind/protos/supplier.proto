@@ -5,7 +5,7 @@ package northwind;
 import "artisan/artisan.proto";
 
 message Supplier {
-    string id = 1;
+    string id = 1 [(artisan.field_is_primary_key) = true];
     string name = 2;
     string contact_name = 3;
     string contact_title = 4;
@@ -18,4 +18,11 @@ message Supplier {
     string fax = 11 [(artisan.string_is_phone) = true];
     string website = 12 [(artisan.string_is_website) = true];
     string email = 13 [(artisan.string_is_email) = true];
+}
+
+message SupplierFK {
+    oneof supplier {
+        string id = 1;
+        Supplier instance = 2;
+    }
 }

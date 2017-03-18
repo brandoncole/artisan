@@ -5,16 +5,23 @@ package northwind;
 import "artisan/artisan.proto";
 
 message Customer {
-    string id = 1;
-    string name = 2;
-    string contact_name = 3;
+    string id = 1 [(artisan.field_is_primary_key) = true];
+    string name = 2 [(artisan.field_is_indexed) = true];
+    string contact_name = 3 [(artisan.field_is_indexed) = true];
     string contact_title = 4;
     string address = 5;
-    string city = 6;
-    string region = 7;
-    string postal_code = 8;
-    string country = 9;
+    string city = 6 [(artisan.field_is_indexed) = true];
+    string region = 7 [(artisan.field_is_indexed) = true];
+    string postal_code = 8 [(artisan.field_is_indexed) = true];
+    string country = 9 [(artisan.field_is_indexed) = true];
     string phone = 10 [(artisan.string_is_phone) = true];
     string fax = 11 [(artisan.string_is_phone) = true];
     string email = 12 [(artisan.string_is_email) = true];
+}
+
+message CustomerFK {
+    oneof customer {
+        string id = 1;
+        Customer instance = 2;
+    }
 }

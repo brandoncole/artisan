@@ -9,13 +9,13 @@ import "employee.proto";
 import "shipper.proto";
 
 message Order {
-    string id = 1;
-    Customer customer = 2;
-    Employee employee = 3;
+    string id = 1 [(artisan.field_is_primary_key) = true];
+    CustomerFK customer = 2 [(artisan.field_is_indexed) = true];
+    EmployeeFK employee = 3 [(artisan.field_is_indexed) = true];
     string order_date = 4 [(artisan.string_is_date) = true];
     string required_date = 5 [(artisan.string_is_date) = true];
     string shipped_date = 6 [(artisan.string_is_date) = true];
-    Shipper shipper = 7;
+    ShipperFK shipper = 7 [(artisan.field_is_indexed) = true];
     float freight = 8 [(artisan.float_is_currency) = true];
     string ship_name = 9;
     string ship_address = 10;
@@ -24,7 +24,7 @@ message Order {
     string ship_postal_code = 13;
     string ship_country = 14;
     repeated OrderItem items = 15;
-    float total = 16;
+    float total = 16 [(artisan.field_is_computed_from) = "freight,items",  (artisan.field_is_indexed) = true];
 }
 
 message OrderItem {

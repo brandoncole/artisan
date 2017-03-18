@@ -9,22 +9,32 @@ import "region.proto";
 import "territory.proto";
 
 message Employee {
-    string id = 1;
-    string last_name = 2;
-    string first_name = 3;
-    string title = 4;
-    string title_of_courtesy = 5;
-    string birth_date = 6 [(artisan.string_is_date) = true];
-    string hire_date = 7 [(artisan.string_is_date) = true];
-    string address = 8;
-    string city = 9;
-    Region region = 10;
-    string postal_code = 11;
-    string country = 12;
-    string phone = 13 [(artisan.string_is_phone) = true];
-    string extension = 14;
-    Image photo = 15;
-    string notes = 16;
-    Employee reports_to = 17;
-    repeated Territory territories = 18;
+    string id = 1 [(artisan.field_is_primary_key) = true];
+    string login = 2 [(artisan.field_is_unique) = true];
+    uint32 salt = 3 [(artisan.field_is_salt) = true];
+    string password = 4 [(artisan.field_is_salted) = true];
+    string last_name = 5;
+    string first_name = 6;
+    string title = 7;
+    string title_of_courtesy = 8;
+    string birth_date = 9 [(artisan.string_is_date) = true];
+    string hire_date = 10 [(artisan.string_is_date) = true];
+    string address = 11;
+    string city = 12;
+    RegionFK region = 13;
+    string postal_code = 14;
+    string country = 15;
+    string phone = 16 [(artisan.string_is_phone) = true];
+    string extension = 17;
+    ImageFK photo = 18;
+    string notes = 19;
+    EmployeeFK reports_to = 20;
+    repeated Territory territories = 21;
+}
+
+message EmployeeFK {
+    oneof employee {
+        string id = 1;
+        Employee instance = 2;
+    };
 }

@@ -2,10 +2,12 @@ syntax = "proto3";
 
 package northwind;
 
+import "artisan/artisan.proto";
+
 import "region.proto";
 
 message Territory {
-    string id = 1;
+    string id = 1 [(artisan.field_is_primary_key) = true];
     string description = 2;
-    Region region = 3;
+    RegionFK region = 3;
 }

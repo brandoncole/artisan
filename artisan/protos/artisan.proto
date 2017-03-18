@@ -6,13 +6,20 @@ import "google/protobuf/descriptor.proto";
 
 extend google.protobuf.FieldOptions {
 
-  bool string_is_email = 50000;
-  bool string_is_website = 50001;
-  bool string_is_date = 50002;
-  bool string_is_time = 50003;
-  bool string_is_date_time = 50004;
-  bool string_is_phone = 50005;
+    bool field_is_primary_key = 50000;
+    bool field_is_indexed = 50001;
+    string field_is_computed_from = 50002;
+    bool field_is_unique = 50003;
+    bool field_is_salt = 50004;
+    bool field_is_salted = 500005;
 
-  bool float_is_currency = 51000;
+    bool string_is_email = 51000;
+    bool string_is_website = 51001;
+    bool string_is_date = 51002;
+    bool string_is_time = 51003;
+    bool string_is_phone = 51004;
+    bool string_is_json = 51005;
+
+    bool float_is_currency = 52000;
 
 }

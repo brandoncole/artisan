@@ -7,6 +7,7 @@ package northwind
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
+import _ "artisan"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -37,18 +38,141 @@ func (m *Image) GetData() []byte {
 	return nil
 }
 
+type ImageFK struct {
+	// Types that are valid to be assigned to Image:
+	//	*ImageFK_Id
+	//	*ImageFK_Instance
+	Image isImageFK_Image `protobuf_oneof:"image"`
+}
+
+func (m *ImageFK) Reset()                    { *m = ImageFK{} }
+func (m *ImageFK) String() string            { return proto.CompactTextString(m) }
+func (*ImageFK) ProtoMessage()               {}
+func (*ImageFK) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{1} }
+
+type isImageFK_Image interface {
+	isImageFK_Image()
+}
+
+type ImageFK_Id struct {
+	Id string `protobuf:"bytes,1,opt,name=id,oneof"`
+}
+type ImageFK_Instance struct {
+	Instance *Image `protobuf:"bytes,2,opt,name=instance,oneof"`
+}
+
+func (*ImageFK_Id) isImageFK_Image()       {}
+func (*ImageFK_Instance) isImageFK_Image() {}
+
+func (m *ImageFK) GetImage() isImageFK_Image {
+	if m != nil {
+		return m.Image
+	}
+	return nil
+}
+
+func (m *ImageFK) GetId() string {
+	if x, ok := m.GetImage().(*ImageFK_Id); ok {
+		return x.Id
+	}
+	return ""
+}
+
+func (m *ImageFK) GetInstance() *Image {
+	if x, ok := m.GetImage().(*ImageFK_Instance); ok {
+		return x.Instance
+	}
+	return nil
+}
+
+// XXX_OneofFuncs is for the internal use of the proto package.
+func (*ImageFK) XXX_OneofFuncs() (func(msg proto.Message, b *proto.Buffer) error, func(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error), func(msg proto.Message) (n int), []interface{}) {
+	return _ImageFK_OneofMarshaler, _ImageFK_OneofUnmarshaler, _ImageFK_OneofSizer, []interface{}{
+		(*ImageFK_Id)(nil),
+		(*ImageFK_Instance)(nil),
+	}
+}
+
+func _ImageFK_OneofMarshaler(msg proto.Message, b *proto.Buffer) error {
+	m := msg.(*ImageFK)
+	// image
+	switch x := m.Image.(type) {
+	case *ImageFK_Id:
+		b.EncodeVarint(1<<3 | proto.WireBytes)
+		b.EncodeStringBytes(x.Id)
+	case *ImageFK_Instance:
+		b.EncodeVarint(2<<3 | proto.WireBytes)
+		if err := b.EncodeMessage(x.Instance); err != nil {
+			return err
+		}
+	case nil:
+	default:
+		return fmt.Errorf("ImageFK.Image has unexpected type %T", x)
+	}
+	return nil
+}
+
+func _ImageFK_OneofUnmarshaler(msg proto.Message, tag, wire int, b *proto.Buffer) (bool, error) {
+	m := msg.(*ImageFK)
+	switch tag {
+	case 1: // image.id
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		x, err := b.DecodeStringBytes()
+		m.Image = &ImageFK_Id{x}
+		return true, err
+	case 2: // image.instance
+		if wire != proto.WireBytes {
+			return true, proto.ErrInternalBadWireType
+		}
+		msg := new(Image)
+		err := b.DecodeMessage(msg)
+		m.Image = &ImageFK_Instance{msg}
+		return true, err
+	default:
+		return false, nil
+	}
+}
+
+func _ImageFK_OneofSizer(msg proto.Message) (n int) {
+	m := msg.(*ImageFK)
+	// image
+	switch x := m.Image.(type) {
+	case *ImageFK_Id:
+		n += proto.SizeVarint(1<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(len(x.Id)))
+		n += len(x.Id)
+	case *ImageFK_Instance:
+		s := proto.Size(x.Instance)
+		n += proto.SizeVarint(2<<3 | proto.WireBytes)
+		n += proto.SizeVarint(uint64(s))
+		n += s
+	case nil:
+	default:
+		panic(fmt.Sprintf("proto: unexpected type %T in oneof", x))
+	}
+	return n
+}
+
 func init() {
 	proto.RegisterType((*Image)(nil), "northwind.Image")
+	proto.RegisterType((*ImageFK)(nil), "northwind.ImageFK")
 }
 
 func init() { proto.RegisterFile("image.proto", fileDescriptor2) }
 
 var fileDescriptor2 = []byte{
-	// 93 bytes of a gzipped FileDescriptorProto
+	// 162 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0xce, 0xcc, 0x4d, 0x4c,
 	0x4f, 0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0xcc, 0xcb, 0x2f, 0x2a, 0xc9, 0x28, 0xcf,
-	0xcc, 0x4b, 0x51, 0xd2, 0xe6, 0x62, 0xf5, 0x04, 0xc9, 0x08, 0xf1, 0x71, 0x31, 0x65, 0xa6, 0x48,
-	0x30, 0x2a, 0x30, 0x6a, 0x70, 0x06, 0x31, 0x65, 0xa6, 0x08, 0x09, 0x71, 0xb1, 0xa4, 0x24, 0x96,
-	0x24, 0x4a, 0x30, 0x29, 0x30, 0x6a, 0xf0, 0x04, 0x81, 0xd9, 0x49, 0x6c, 0x60, 0xed, 0xc6, 0x80,
-	0x00, 0x00, 0x00, 0xff, 0xff, 0xfc, 0xfb, 0xde, 0x7d, 0x4d, 0x00, 0x00, 0x00,
+	0xcc, 0x4b, 0x91, 0x12, 0x4d, 0x2c, 0x2a, 0xc9, 0x2c, 0x4e, 0xcc, 0xd3, 0x87, 0xd2, 0x10, 0x15,
+	0x4a, 0x86, 0x5c, 0xac, 0x9e, 0x20, 0x0d, 0x42, 0x22, 0x5c, 0x4c, 0x99, 0x29, 0x12, 0x8c, 0x0a,
+	0x8c, 0x1a, 0x9c, 0x4e, 0x2c, 0x0d, 0x5b, 0x25, 0x18, 0x83, 0x98, 0x32, 0x53, 0x84, 0x84, 0xb8,
+	0x58, 0x52, 0x12, 0x4b, 0x12, 0x25, 0x98, 0x14, 0x18, 0x35, 0x78, 0x82, 0xc0, 0x6c, 0xa5, 0x10,
+	0x2e, 0x76, 0xb0, 0x16, 0x37, 0x6f, 0x21, 0x01, 0x84, 0x26, 0x0f, 0x06, 0xb0, 0x06, 0x3d, 0x2e,
+	0x8e, 0xcc, 0xbc, 0xe2, 0x92, 0xc4, 0xbc, 0xe4, 0x54, 0xb0, 0x26, 0x6e, 0x23, 0x01, 0x3d, 0xb8,
+	0x23, 0xf4, 0xc0, 0xfa, 0x3c, 0x18, 0x82, 0xe0, 0x6a, 0x9c, 0xd8, 0xb9, 0x58, 0xc1, 0x0e, 0x4e,
+	0x62, 0x03, 0xbb, 0xc7, 0x18, 0x10, 0x00, 0x00, 0xff, 0xff, 0x52, 0x37, 0xbc, 0x76, 0xc0, 0x00,
+	0x00, 0x00,
 }
