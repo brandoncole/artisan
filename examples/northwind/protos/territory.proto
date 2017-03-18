@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package northwind;
+
+import "region.proto";
+
+message Territory {
+    string id = 1;
+    string description = 2;
+    Region region = 3;
+}

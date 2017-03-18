@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package northwind;
+
+import "artisan/artisan.proto";
+
+import "customer.proto";
+import "employee.proto";
+import "shipper.proto";
+
+message Order {
+    string id = 1;
+    Customer customer = 2;
+    Employee employee = 3;
+    string order_date = 4 [(artisan.string_is_date) = true];
+    string required_date = 5 [(artisan.string_is_date) = true];
+    string shipped_date = 6 [(artisan.string_is_date) = true];
+    Shipper shipper = 7;
+    float freight = 8 [(artisan.float_is_currency) = true];
+    string ship_name = 9;
+    string ship_address = 10;
+    string ship_city = 11;
+    string ship_region = 12;
+    string ship_postal_code = 13;
+    string ship_country = 14;
+    repeated OrderItem items = 15;
+    float total = 16;
+}
+
+message OrderItem {
+    float unit_price = 1 [(artisan.float_is_currency) = true];
+    uint32 quantity = 2;
+    float discount = 3 [(artisan.float_is_currency) = true];
+}

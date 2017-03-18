@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package northwind;
+
+import "artisan/artisan.proto";
+import "image.proto";
+
+message Category {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    Image image = 4;
+}

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package artisan;
+
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.FieldOptions {
+
+  bool string_is_email = 50000;
+  bool string_is_website = 50001;
+  bool string_is_date = 50002;
+  bool string_is_time = 50003;
+  bool string_is_date_time = 50004;
+  bool string_is_phone = 50005;
+
+  bool float_is_currency = 51000;
+
+}

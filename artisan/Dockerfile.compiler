@@ -1,0 +1,32 @@
+FROM golang:1.8.0
+
+MAINTAINER "Brandon Cole"
+
+ENV PROTOCOL_BUFFERS_VERSION=3.2.0
+
+RUN set -x && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends \
+    unzip=6.0-16+deb8u2 && \
+    apt-get clean
+
+RUN set -x && \
+    mkdir -p /tmp/protoc && \
+    mkdir -p /artisan/protos && \
+    curl -sSL https://github.com/google/protobuf/releases/download/v${PROTOCOL_BUFFERS_VERSION}/protoc-${PROTOCOL_BUFFERS_VERSION}-linux-x86_64.zip > /tmp/protoc/protoc.zip && \
+    cd /tmp/protoc && \
+    unzip protoc.zip && \
+    cp -r /tmp/protoc/include/google /artisan/protos && \
+    cp /tmp/protoc/bin/protoc /usr/local/bin && \
+    chmod go+rx /usr/local/bin/protoc && \
+    cd /tmp && \
+    rm -r /tmp/protoc
+
+# Get the source from GitHub
+RUN set -x && \
+    go get -u google.golang.org/grpc && \
+    go get -u github.com/golang/protobuf/protoc-gen-go
+
+COPY protos /artisan/protos/artisan
+
+WORKDIR /artisan

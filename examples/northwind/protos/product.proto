@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package northwind;
+
+import "artisan/artisan.proto";
+
+import "category.proto";
+import "supplier.proto";
+
+message Product {
+    string id = 1;
+    string name = 2;
+    Supplier supplier = 3;
+    Category category = 4;
+    string quantity_per_unit = 5;
+    float unit_price = 6;
+    uint32 units_in_stock = 7;
+    uint32 units_on_order = 8;
+    uint32 reoder_level = 9;
+    bool discontinued = 10;
+}

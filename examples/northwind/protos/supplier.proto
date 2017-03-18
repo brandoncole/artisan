@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package northwind;
+
+import "artisan/artisan.proto";
+
+message Supplier {
+    string id = 1;
+    string name = 2;
+    string contact_name = 3;
+    string contact_title = 4;
+    string address = 5;
+    string city = 6;
+    string region = 7;
+    string postal_code = 8;
+    string country = 9;
+    string phone = 10 [(artisan.string_is_phone) = true];
+    string fax = 11 [(artisan.string_is_phone) = true];
+    string website = 12 [(artisan.string_is_website) = true];
+    string email = 13 [(artisan.string_is_email) = true];
+}

@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package northwind;
+
+import "artisan/artisan.proto";
+
+import "image.proto";
+import "region.proto";
+import "territory.proto";
+
+message Employee {
+    string id = 1;
+    string last_name = 2;
+    string first_name = 3;
+    string title = 4;
+    string title_of_courtesy = 5;
+    string birth_date = 6 [(artisan.string_is_date) = true];
+    string hire_date = 7 [(artisan.string_is_date) = true];
+    string address = 8;
+    string city = 9;
+    Region region = 10;
+    string postal_code = 11;
+    string country = 12;
+    string phone = 13 [(artisan.string_is_phone) = true];
+    string extension = 14;
+    Image photo = 15;
+    string notes = 16;
+    Employee reports_to = 17;
+    repeated Territory territories = 18;
+}
