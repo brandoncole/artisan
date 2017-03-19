@@ -1,0 +1,11 @@
+package: github.com/brandoncole/artisan
+import:
+- package: github.com/golang/protobuf
+  subpackages:
+  - proto
+- package: golang.org/x/net
+  subpackages:
+  - context
+- package: google.golang.org/grpc
+  version: v1.0.5
+- package: github.com/spf13/cobra

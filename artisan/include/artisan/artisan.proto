@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package artisan;
 
+option go_package = "github.com/brandoncole/artisan/artisan";
+
 import "google/protobuf/descriptor.proto";
 
 extend google.protobuf.FieldOptions {
@@ -21,5 +23,11 @@ extend google.protobuf.FieldOptions {
     bool string_is_json = 51005;
 
     bool float_is_currency = 52000;
+
+}
+
+extend google.protobuf.ServiceOptions {
+
+    string store_for_message = 61000;
 
 }

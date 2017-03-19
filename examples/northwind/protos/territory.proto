@@ -11,3 +11,8 @@ message Territory {
     string description = 2;
     RegionFK region = 3;
 }
+
+
+service Territories {
+    option (artisan.store_for_message) = "artisan.Territory";
+}

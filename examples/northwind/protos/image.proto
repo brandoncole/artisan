@@ -15,3 +15,7 @@ message ImageFK {
         Image instance = 2;
     };
 }
+
+service Images {
+    option (artisan.store_for_message) = "artisan.Image";
+}

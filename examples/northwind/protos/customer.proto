@@ -25,3 +25,7 @@ message CustomerFK {
         Customer instance = 2;
     }
 }
+
+service Customers {
+    option (artisan.store_for_message) = "artisan.Customer";
+}

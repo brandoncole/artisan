@@ -19,3 +19,7 @@ message Product {
     uint32 reoder_level = 9;
     bool discontinued = 10;
 }
+
+service Products {
+    option (artisan.store_for_message) = "artisan.Product";
+}

@@ -16,3 +16,7 @@ message ShipperFK {
         Shipper instance = 2;
     };
 }
+
+service Shippers {
+    option (artisan.store_for_message) = "artisan.Shipper";
+}

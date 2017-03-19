@@ -18,3 +18,7 @@ message CategoryFK {
         Category instance = 2;
     }
 }
+
+service Categories {
+    option (artisan.store_for_message) = "artisan.Category";
+}

@@ -12,21 +12,16 @@ RUN set -x && \
 
 RUN set -x && \
     mkdir -p /tmp/protoc && \
-    mkdir -p /artisan/protos && \
     curl -sSL https://github.com/google/protobuf/releases/download/v${PROTOCOL_BUFFERS_VERSION}/protoc-${PROTOCOL_BUFFERS_VERSION}-linux-x86_64.zip > /tmp/protoc/protoc.zip && \
     cd /tmp/protoc && \
-    unzip protoc.zip && \
-    cp -r /tmp/protoc/include/google /artisan/protos && \
-    cp /tmp/protoc/bin/protoc /usr/local/bin && \
+    unzip protoc.zip -d /usr/local/lib/protobuf && \
+    ln -s /usr/local/lib/protobuf/bin/protoc /usr/local/bin/protoc && \
     chmod go+rx /usr/local/bin/protoc && \
-    cd /tmp && \
-    rm -r /tmp/protoc
+    rm -rf /tmp/protoc
 
 # Get the source from GitHub
 RUN set -x && \
     go get -u google.golang.org/grpc && \
     go get -u github.com/golang/protobuf/protoc-gen-go
-
-COPY protos /artisan/protos/artisan
 
 WORKDIR /artisan

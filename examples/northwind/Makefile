@@ -1,20 +1,24 @@
-.PHONY: northwind
+.PHONY: northwind build
 
 ARTISAN_VERSION?=0.0.1
-ARTISAN_IMAGE=artisan:${ARTISAN_VERSION}
+ARTISAN_IMAGE_CLI=artisan-cli:${ARTISAN_VERSION}
+
+NORTHWIND_PACKAGE=github.com/brandoncole/artisan/examples/northwind
+NORTHWIND_PACKAGE_DIR="/go/src/${NORTHWIND_PACKAGE}"
 
 default: northwind
 
 northwind:
-	docker run --rm -v "`pwd`:/northwind" -w /northwind ${ARTISAN_IMAGE} make build
+	docker run --rm -v "`pwd`:${NORTHWIND_PACKAGE_DIR}" -w ${NORTHWIND_PACKAGE_DIR} ${ARTISAN_IMAGE_CLI} make build
 
 build:
+	#TODO: Use artisan
 	rm -rf bindings
 	mkdir -p bindings
 	protoc -o bindings/description.pb \
 		--include_imports \
 		--include_source_info \
 		--go_out=plugins=grpc:./bindings/ \
-		--proto_path=/artisan/protos \
+		--proto_path=/artisan/include \
 		--proto_path=protos \
 		-I $(shell find protos/ -iname *.proto)

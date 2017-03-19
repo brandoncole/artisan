@@ -26,3 +26,7 @@ message SupplierFK {
         Supplier instance = 2;
     }
 }
+
+service Suppliers {
+    option (artisan.store_for_message) = "artisan.Supplier";
+}

@@ -32,3 +32,7 @@ message OrderItem {
     uint32 quantity = 2;
     float discount = 3 [(artisan.float_is_currency) = true];
 }
+
+service Orders {
+    option (artisan.store_for_message) = "artisan.Order";
+}

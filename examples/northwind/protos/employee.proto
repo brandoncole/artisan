@@ -38,3 +38,7 @@ message EmployeeFK {
         Employee instance = 2;
     };
 }
+
+service Employees {
+    option (artisan.store_for_message) = "artisan.Employee";
+}

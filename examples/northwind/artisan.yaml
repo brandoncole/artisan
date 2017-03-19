@@ -1,0 +1,5 @@
+artisan:
+  backend:
+    generator: postgresql
+  frontend:
+    generator: swagger

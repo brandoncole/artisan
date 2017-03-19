@@ -15,3 +15,7 @@ message RegionFK {
         Region instance = 2;
     };
 }
+
+service Regions {
+    option (artisan.store_for_message) = "artisan.Region";
+}
