@@ -1,5 +1,6 @@
-artisan:
-  backend:
-    generator: postgresql
-  frontend:
-    generator: swagger
+# This is the artisan manifest configuration
+version: "1.0"
+inputs:
+  path: ./protos
+outputs:
+  path: ./artisan

@@ -1,5 +1,5 @@
-.PHONY: default
+SOURCES=$(find . -iname *.go)
 
-default:
+bin\artsian: $(SOURCES)
 	mkdir -p bin
 	go build -o bin/artisan .
