@@ -27,7 +27,7 @@ type Image struct {
 func (m *Image) Reset()                    { *m = Image{} }
 func (m *Image) String() string            { return proto.CompactTextString(m) }
 func (*Image) ProtoMessage()               {}
-func (*Image) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
+func (*Image) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{0} }
 
 func (m *Image) GetId() string {
 	if m != nil {
@@ -53,7 +53,7 @@ type ImageFK struct {
 func (m *ImageFK) Reset()                    { *m = ImageFK{} }
 func (m *ImageFK) String() string            { return proto.CompactTextString(m) }
 func (*ImageFK) ProtoMessage()               {}
-func (*ImageFK) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{1} }
+func (*ImageFK) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{1} }
 
 type isImageFK_Image interface {
 	isImageFK_Image()
@@ -203,9 +203,9 @@ var _Images_serviceDesc = grpc.ServiceDesc{
 	Metadata:    "image.proto",
 }
 
-func init() { proto.RegisterFile("image.proto", fileDescriptor2) }
+func init() { proto.RegisterFile("image.proto", fileDescriptor3) }
 
-var fileDescriptor2 = []byte{
+var fileDescriptor3 = []byte{
 	// 180 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0xce, 0xcc, 0x4d, 0x4c,
 	0x4f, 0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0xcc, 0xcb, 0x2f, 0x2a, 0xc9, 0x28, 0xcf,

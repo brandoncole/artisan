@@ -13,10 +13,3 @@ northwind:
 
 build:
 	artisan generate -f artisan.yaml
-	protoc -o artisan/schema/description.pb \
-		--include_imports \
-		--include_source_info \
-		--go_out=plugins=grpc:./artisan/grpc/ \
-		--proto_path=/artisan/include \
-		--proto_path=protos \
-		-I $(shell find protos/ -iname *.proto)

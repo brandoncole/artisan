@@ -41,7 +41,7 @@ type Order struct {
 func (m *Order) Reset()                    { *m = Order{} }
 func (m *Order) String() string            { return proto.CompactTextString(m) }
 func (*Order) ProtoMessage()               {}
-func (*Order) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{0} }
+func (*Order) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{0} }
 
 func (m *Order) GetId() string {
 	if m != nil {
@@ -164,7 +164,7 @@ type OrderItem struct {
 func (m *OrderItem) Reset()                    { *m = OrderItem{} }
 func (m *OrderItem) String() string            { return proto.CompactTextString(m) }
 func (*OrderItem) ProtoMessage()               {}
-func (*OrderItem) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{1} }
+func (*OrderItem) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{1} }
 
 func (m *OrderItem) GetUnitPrice() float32 {
 	if m != nil {
@@ -230,9 +230,9 @@ var _Orders_serviceDesc = grpc.ServiceDesc{
 	Metadata:    "order.proto",
 }
 
-func init() { proto.RegisterFile("order.proto", fileDescriptor3) }
+func init() { proto.RegisterFile("order.proto", fileDescriptor4) }
 
-var fileDescriptor3 = []byte{
+var fileDescriptor4 = []byte{
 	// 503 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x64, 0x93, 0xdf, 0x8a, 0xd3, 0x40,
 	0x14, 0xc6, 0x49, 0xb7, 0xdd, 0x36, 0xa7, 0x4d, 0x5d, 0x87, 0x2d, 0x8c, 0x59, 0xd4, 0xb8, 0x5e,

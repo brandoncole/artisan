@@ -28,7 +28,7 @@ type Shipper struct {
 func (m *Shipper) Reset()                    { *m = Shipper{} }
 func (m *Shipper) String() string            { return proto.CompactTextString(m) }
 func (*Shipper) ProtoMessage()               {}
-func (*Shipper) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{0} }
+func (*Shipper) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{0} }
 
 func (m *Shipper) GetId() string {
 	if m != nil {
@@ -61,7 +61,7 @@ type ShipperFK struct {
 func (m *ShipperFK) Reset()                    { *m = ShipperFK{} }
 func (m *ShipperFK) String() string            { return proto.CompactTextString(m) }
 func (*ShipperFK) ProtoMessage()               {}
-func (*ShipperFK) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{1} }
+func (*ShipperFK) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{1} }
 
 type isShipperFK_Shipper interface {
 	isShipperFK_Shipper()
@@ -211,9 +211,9 @@ var _Shippers_serviceDesc = grpc.ServiceDesc{
 	Metadata:    "shipper.proto",
 }
 
-func init() { proto.RegisterFile("shipper.proto", fileDescriptor6) }
+func init() { proto.RegisterFile("shipper.proto", fileDescriptor7) }
 
-var fileDescriptor6 = []byte{
+var fileDescriptor7 = []byte{
 	// 199 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x2d, 0xce, 0xc8, 0x2c,
 	0x28, 0x48, 0x2d, 0xd2, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0xcc, 0xcb, 0x2f, 0x2a, 0xc9,

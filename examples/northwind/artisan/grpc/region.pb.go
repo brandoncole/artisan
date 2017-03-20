@@ -27,7 +27,7 @@ type Region struct {
 func (m *Region) Reset()                    { *m = Region{} }
 func (m *Region) String() string            { return proto.CompactTextString(m) }
 func (*Region) ProtoMessage()               {}
-func (*Region) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{0} }
+func (*Region) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{0} }
 
 func (m *Region) GetId() string {
 	if m != nil {
@@ -53,7 +53,7 @@ type RegionFK struct {
 func (m *RegionFK) Reset()                    { *m = RegionFK{} }
 func (m *RegionFK) String() string            { return proto.CompactTextString(m) }
 func (*RegionFK) ProtoMessage()               {}
-func (*RegionFK) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{1} }
+func (*RegionFK) Descriptor() ([]byte, []int) { return fileDescriptor6, []int{1} }
 
 type isRegionFK_Region interface {
 	isRegionFK_Region()
@@ -203,9 +203,9 @@ var _Regions_serviceDesc = grpc.ServiceDesc{
 	Metadata:    "region.proto",
 }
 
-func init() { proto.RegisterFile("region.proto", fileDescriptor5) }
+func init() { proto.RegisterFile("region.proto", fileDescriptor6) }
 
-var fileDescriptor5 = []byte{
+var fileDescriptor6 = []byte{
 	// 186 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x29, 0x4a, 0x4d, 0xcf,
 	0xcc, 0xcf, 0xd3, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0xcc, 0xcb, 0x2f, 0x2a, 0xc9, 0x28,

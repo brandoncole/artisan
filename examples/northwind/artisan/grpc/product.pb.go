@@ -8,7 +8,6 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 import _ "github.com/brandoncole/artisan/artisan"
-import northwind1 "."
 
 import (
 	context "golang.org/x/net/context"
@@ -21,22 +20,22 @@ var _ = fmt.Errorf
 var _ = math.Inf
 
 type Product struct {
-	Id              string                 `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
-	Name            string                 `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
-	Supplier        *SupplierFK            `protobuf:"bytes,3,opt,name=supplier" json:"supplier,omitempty"`
-	Category        *northwind1.CategoryFK `protobuf:"bytes,4,opt,name=category" json:"category,omitempty"`
-	QuantityPerUnit string                 `protobuf:"bytes,5,opt,name=quantity_per_unit,json=quantityPerUnit" json:"quantity_per_unit,omitempty"`
-	UnitPrice       float32                `protobuf:"fixed32,6,opt,name=unit_price,json=unitPrice" json:"unit_price,omitempty"`
-	UnitsInStock    uint32                 `protobuf:"varint,7,opt,name=units_in_stock,json=unitsInStock" json:"units_in_stock,omitempty"`
-	UnitsOnOrder    uint32                 `protobuf:"varint,8,opt,name=units_on_order,json=unitsOnOrder" json:"units_on_order,omitempty"`
-	ReoderLevel     uint32                 `protobuf:"varint,9,opt,name=reoder_level,json=reoderLevel" json:"reoder_level,omitempty"`
-	Discontinued    bool                   `protobuf:"varint,10,opt,name=discontinued" json:"discontinued,omitempty"`
+	Id              string      `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
+	Name            string      `protobuf:"bytes,2,opt,name=name" json:"name,omitempty"`
+	Supplier        *SupplierFK `protobuf:"bytes,3,opt,name=supplier" json:"supplier,omitempty"`
+	Category        *CategoryFK `protobuf:"bytes,4,opt,name=category" json:"category,omitempty"`
+	QuantityPerUnit string      `protobuf:"bytes,5,opt,name=quantity_per_unit,json=quantityPerUnit" json:"quantity_per_unit,omitempty"`
+	UnitPrice       float32     `protobuf:"fixed32,6,opt,name=unit_price,json=unitPrice" json:"unit_price,omitempty"`
+	UnitsInStock    uint32      `protobuf:"varint,7,opt,name=units_in_stock,json=unitsInStock" json:"units_in_stock,omitempty"`
+	UnitsOnOrder    uint32      `protobuf:"varint,8,opt,name=units_on_order,json=unitsOnOrder" json:"units_on_order,omitempty"`
+	ReoderLevel     uint32      `protobuf:"varint,9,opt,name=reoder_level,json=reoderLevel" json:"reoder_level,omitempty"`
+	Discontinued    bool        `protobuf:"varint,10,opt,name=discontinued" json:"discontinued,omitempty"`
 }
 
 func (m *Product) Reset()                    { *m = Product{} }
 func (m *Product) String() string            { return proto.CompactTextString(m) }
 func (*Product) ProtoMessage()               {}
-func (*Product) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{0} }
+func (*Product) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{0} }
 
 func (m *Product) GetId() string {
 	if m != nil {
@@ -59,7 +58,7 @@ func (m *Product) GetSupplier() *SupplierFK {
 	return nil
 }
 
-func (m *Product) GetCategory() *northwind1.CategoryFK {
+func (m *Product) GetCategory() *CategoryFK {
 	if m != nil {
 		return m.Category
 	}
@@ -150,9 +149,9 @@ var _Products_serviceDesc = grpc.ServiceDesc{
 	Metadata:    "product.proto",
 }
 
-func init() { proto.RegisterFile("product.proto", fileDescriptor4) }
+func init() { proto.RegisterFile("product.proto", fileDescriptor5) }
 
-var fileDescriptor4 = []byte{
+var fileDescriptor5 = []byte{
 	// 335 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x64, 0x91, 0xdd, 0x4a, 0xf3, 0x40,
 	0x10, 0x86, 0xd9, 0x7c, 0xfd, 0xda, 0x64, 0xfb, 0x87, 0xab, 0x85, 0xa5, 0x50, 0x8c, 0xc5, 0x83,

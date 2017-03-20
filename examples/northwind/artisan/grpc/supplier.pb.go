@@ -38,7 +38,7 @@ type Supplier struct {
 func (m *Supplier) Reset()                    { *m = Supplier{} }
 func (m *Supplier) String() string            { return proto.CompactTextString(m) }
 func (*Supplier) ProtoMessage()               {}
-func (*Supplier) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{0} }
+func (*Supplier) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{0} }
 
 func (m *Supplier) GetId() string {
 	if m != nil {
@@ -141,7 +141,7 @@ type SupplierFK struct {
 func (m *SupplierFK) Reset()                    { *m = SupplierFK{} }
 func (m *SupplierFK) String() string            { return proto.CompactTextString(m) }
 func (*SupplierFK) ProtoMessage()               {}
-func (*SupplierFK) Descriptor() ([]byte, []int) { return fileDescriptor7, []int{1} }
+func (*SupplierFK) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{1} }
 
 type isSupplierFK_Supplier interface {
 	isSupplierFK_Supplier()
@@ -291,9 +291,9 @@ var _Suppliers_serviceDesc = grpc.ServiceDesc{
 	Metadata:    "supplier.proto",
 }
 
-func init() { proto.RegisterFile("supplier.proto", fileDescriptor7) }
+func init() { proto.RegisterFile("supplier.proto", fileDescriptor8) }
 
-var fileDescriptor7 = []byte{
+var fileDescriptor8 = []byte{
 	// 359 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x4c, 0x91, 0xcf, 0x6a, 0xe3, 0x30,
 	0x10, 0xc6, 0x63, 0xe7, 0x9f, 0x3d, 0x4e, 0x96, 0xa0, 0xcd, 0x86, 0x21, 0xb0, 0x7f, 0x92, 0xbd,

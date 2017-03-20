@@ -2,38 +2,6 @@
 // source: customer.proto
 // DO NOT EDIT!
 
-/*
-Package northwind is a generated protocol buffer package.
-
-It is generated from these files:
-	customer.proto
-	employee.proto
-	image.proto
-	order.proto
-	product.proto
-	region.proto
-	shipper.proto
-	supplier.proto
-	territory.proto
-
-It has these top-level messages:
-	Customer
-	CustomerFK
-	Employee
-	EmployeeFK
-	Image
-	ImageFK
-	Order
-	OrderItem
-	Product
-	Region
-	RegionFK
-	Shipper
-	ShipperFK
-	Supplier
-	SupplierFK
-	Territory
-*/
 package northwind
 
 import proto "github.com/golang/protobuf/proto"
@@ -50,12 +18,6 @@ import (
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type Customer struct {
 	Id           string `protobuf:"bytes,1,opt,name=id" json:"id,omitempty"`
@@ -75,7 +37,7 @@ type Customer struct {
 func (m *Customer) Reset()                    { *m = Customer{} }
 func (m *Customer) String() string            { return proto.CompactTextString(m) }
 func (*Customer) ProtoMessage()               {}
-func (*Customer) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{0} }
+func (*Customer) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{0} }
 
 func (m *Customer) GetId() string {
 	if m != nil {
@@ -171,7 +133,7 @@ type CustomerFK struct {
 func (m *CustomerFK) Reset()                    { *m = CustomerFK{} }
 func (m *CustomerFK) String() string            { return proto.CompactTextString(m) }
 func (*CustomerFK) ProtoMessage()               {}
-func (*CustomerFK) Descriptor() ([]byte, []int) { return fileDescriptor0, []int{1} }
+func (*CustomerFK) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{1} }
 
 type isCustomerFK_Customer interface {
 	isCustomerFK_Customer()
@@ -321,9 +283,9 @@ var _Customers_serviceDesc = grpc.ServiceDesc{
 	Metadata:    "customer.proto",
 }
 
-func init() { proto.RegisterFile("customer.proto", fileDescriptor0) }
+func init() { proto.RegisterFile("customer.proto", fileDescriptor1) }
 
-var fileDescriptor0 = []byte{
+var fileDescriptor1 = []byte{
 	// 345 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x4c, 0x91, 0xcf, 0x4a, 0xeb, 0x40,
 	0x14, 0xc6, 0x9b, 0xf4, 0x5f, 0x72, 0xd2, 0x7b, 0x29, 0x73, 0x7b, 0xe5, 0x50, 0x54, 0xb4, 0x22,

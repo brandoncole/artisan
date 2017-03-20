@@ -46,7 +46,7 @@ type Employee struct {
 func (m *Employee) Reset()                    { *m = Employee{} }
 func (m *Employee) String() string            { return proto.CompactTextString(m) }
 func (*Employee) ProtoMessage()               {}
-func (*Employee) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{0} }
+func (*Employee) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
 
 func (m *Employee) GetId() string {
 	if m != nil {
@@ -205,7 +205,7 @@ type EmployeeFK struct {
 func (m *EmployeeFK) Reset()                    { *m = EmployeeFK{} }
 func (m *EmployeeFK) String() string            { return proto.CompactTextString(m) }
 func (*EmployeeFK) ProtoMessage()               {}
-func (*EmployeeFK) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{1} }
+func (*EmployeeFK) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{1} }
 
 type isEmployeeFK_Employee interface {
 	isEmployeeFK_Employee()
@@ -355,9 +355,9 @@ var _Employees_serviceDesc = grpc.ServiceDesc{
 	Metadata:    "employee.proto",
 }
 
-func init() { proto.RegisterFile("employee.proto", fileDescriptor1) }
+func init() { proto.RegisterFile("employee.proto", fileDescriptor2) }
 
-var fileDescriptor1 = []byte{
+var fileDescriptor2 = []byte{
 	// 553 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x54, 0x53, 0x4d, 0x6e, 0xd3, 0x40,
 	0x14, 0xae, 0xd3, 0x24, 0xb5, 0x9f, 0xdb, 0x26, 0x9d, 0x26, 0xd2, 0x28, 0x50, 0x91, 0x94, 0x4d,

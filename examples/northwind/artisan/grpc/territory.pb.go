@@ -28,7 +28,7 @@ type Territory struct {
 func (m *Territory) Reset()                    { *m = Territory{} }
 func (m *Territory) String() string            { return proto.CompactTextString(m) }
 func (*Territory) ProtoMessage()               {}
-func (*Territory) Descriptor() ([]byte, []int) { return fileDescriptor8, []int{0} }
+func (*Territory) Descriptor() ([]byte, []int) { return fileDescriptor9, []int{0} }
 
 func (m *Territory) GetId() string {
 	if m != nil {
@@ -93,9 +93,9 @@ var _Territories_serviceDesc = grpc.ServiceDesc{
 	Metadata:    "territory.proto",
 }
 
-func init() { proto.RegisterFile("territory.proto", fileDescriptor8) }
+func init() { proto.RegisterFile("territory.proto", fileDescriptor9) }
 
-var fileDescriptor8 = []byte{
+var fileDescriptor9 = []byte{
 	// 177 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x2f, 0x49, 0x2d, 0x2a,
 	0xca, 0x2c, 0xc9, 0x2f, 0xaa, 0xd4, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0xe2, 0xcc, 0xcb, 0x2f,
