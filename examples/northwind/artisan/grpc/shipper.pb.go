@@ -7,7 +7,7 @@ package northwind
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import _ "github.com/brandoncole/artisan/artisan"
+import _ "github.com/brandoncole/artisan/artisan/api"
 
 import (
 	context "golang.org/x/net/context"

@@ -10,17 +10,16 @@ GLIDE_BINARY=${GOPATH}/bin/glide
 
 default: examples
 
-$(ARTISAN_BINARY): $(GLIDE_BINARY) $(ARTISAN_BINARY_INPUTS)
-	glide install
-	(cd artisan/cli && go build .)
-
 $(GLIDE_BINARY):
 	go get -u github.com/Masterminds/glide
+
+vendor: $(GLIDE_BINARY)
+	glide install
 
 compiler: compiler/Dockerfile
 	docker build -f compiler/Dockerfile compiler/ -t ${ARTISAN_IMAGE_COMPILER}
 
-cli: compiler artisan/Dockerfile
+cli: $(ARTISAN_BINARY_INPUTS) vendor compiler
 	# Compile artisan...
 	docker run -v "`pwd`:/go/src/github.com/brandoncole/artisan" ${ARTISAN_IMAGE_COMPILER} make -C /go/src/github.com/brandoncole/artisan/artisan
 	docker build -f artisan/Dockerfile artisan/ -t ${ARTISAN_IMAGE_CLI}

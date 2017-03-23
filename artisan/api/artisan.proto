@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package artisan;
 
-option go_package = "github.com/brandoncole/artisan/artisan";
+option go_package = "github.com/brandoncole/artisan/artisan/api";
 
 import "google/protobuf/descriptor.proto";
 
